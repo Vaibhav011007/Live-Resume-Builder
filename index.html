@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio – Live Resume Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Inter+Tight:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">Folio</div>
+  <nav class="seg" id="tplSeg" aria-label="Resume template"></nav>
+  <div class="bar-r">
+    <span id="saved" class="saved" aria-live="polite">Saved</span>
+    <button class="btn ghost" id="theme" type="button">Light / Dark</button>
+    <button class="btn ghost" id="exp" type="button">Export JSON</button>
+    <label class="btn ghost">Import JSON<input type="file" id="imp" accept=".json" hidden></label>
+    <button class="btn" id="pdf" type="button">Download PDF</button>
+  </div>
+</header>
+
+<div class="tabs" id="tabs" data-i="0" role="tablist">
+  <button role="tab" data-t="edit" aria-selected="true">Edit</button>
+  <button role="tab" data-t="view" aria-selected="false">Preview</button>
+  <i></i>
+</div>
+
+<main class="app" data-view="edit">
+  <aside class="edit" aria-label="Resume editor">
+    <section class="insight" aria-label="Resume strength">
+      <div class="ringw">
+        <svg viewBox="0 0 80 80" width="92" height="92" aria-hidden="true">
+          <circle class="trk" cx="40" cy="40" r="34"></circle>
+          <circle id="ring" cx="40" cy="40" r="34"></circle>
+        </svg>
+        <div class="n"><span id="score">0</span></div>
+      </div>
+      <div>
+        <h2>Resume strength</h2>
+        <p class="stat"><b id="words">0</b> words &nbsp;|&nbsp; <b id="pages">1</b> page</p>
+        <p class="tip" id="tip"></p>
+      </div>
+      <ul id="checks"></ul>
+    </section>
+
+    <details class="card" id="design">
+      <summary>Design</summary>
+      <div class="grid2">
+        <label>Accent color<input type="color" id="accent" data-d="accent"></label>
+        <label>Font
+          <select id="font" data-d="font">
+            <option value="sans">Inter Tight</option>
+            <option value="serif">Source Serif 4</option>
+            <option value="display">Bricolage Grotesque</option>
+          </select>
+        </label>
+      </div>
+      <label>Spacing<input type="range" id="space" data-d="space" min="0.85" max="1.3" step="0.05"></label>
+      <label class="chk"><input type="checkbox" id="showPhoto" data-d="showPhoto"> Show photo (skip it for US, UK, Canada jobs)</label>
+      <label class="chk"><input type="checkbox" id="showLevels" data-d="showLevels"> Show skill levels (Advanced, Expert)</label>
+    </details>
+
+    <div id="form"></div>
+  </aside>
+
+  <section class="stage" aria-label="Live preview">
+    <article class="paper" id="paper"></article>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
