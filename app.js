@@ -1,4 +1,4 @@
-  'use strict';
+ 'use strict';
 /* Folio – Live Resume Builder
    Flow: state (S) -> render functions -> one set of delegated events. */
 
@@ -40,7 +40,7 @@ function contact(P) {
 
 /* ---------- State ---------- */
 const sample = () => ({
-  tpl: 'modern', accent: '#2f3a8f', font: 'sans', space: 1, hidden: [],
+  tpl: 'modern', accent: '#d9381e', font: 'sans', space: 1, hidden: [],
   order: [...PRESET.fresher], showPhoto: true, showLevels: false,
   cert: [{ a: 'Responsive Web Design', b: 'freeCodeCamp', c: '2025', d: '' }],
   lang: 'English (Fluent), Hindi (Native)',
